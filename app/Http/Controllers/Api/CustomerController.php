@@ -1,7 +1,8 @@
 <?php
 namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
-use Request;
+use Illuminate\Http\Request;
+
 class CustomerController extends Controller
 {
     public function index()
@@ -23,8 +24,7 @@ class CustomerController extends Controller
 
     public function searchByCity(Request $request)
     {
-        // Ambil dari query parameter ?city=jakarta
-        $cityQuery = strtolower($request->query('city'));
+        $cityQuery = strtolower($request->city);
 
         $customers = [
             ['id' => 1, 'name' => 'Budi', 'city' => 'Jakarta'],
